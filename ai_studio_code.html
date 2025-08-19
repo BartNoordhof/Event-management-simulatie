@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Site Manager Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>Event Site Manager</h1>
+            <div id="status-display">
+                <div>Satisfaction: <span id="satisfaction-value">100%</span></div>
+                <div>Visitors: <span id="visitor-count">0 / 500</span></div>
+                <div>Time: <span id="sim-time">08:00</span></div>
+            </div>
+        </header>
+
+        <main>
+            <div id="toolbar">
+                <h2>Assets</h2>
+                <div class="asset-item" data-asset-type="ENTRANCE">
+                    <img src="assets/icons/Ingangspoortjes.png" alt="Entrance Gate">
+                    <span>Entrance</span>
+                </div>
+                <div class="asset-item" data-asset-type="EXIT">
+                    <img src="assets/icons/Nooduitgang.png" alt="Emergency Exit">
+                    <span>Exit</span>
+                </div>
+                <div class="asset-item" data-asset-type="STAGE">
+                    <img src="assets/icons/Podium.png" alt="Stage">
+                    <span>Stage</span>
+                </div>
+                <div class="asset-item" data-asset-type="FOOD">
+                    <img src="assets/icons/Eten_en_Drinken.png" alt="Food/Drink Stand">
+                    <span>Food/Drink</span>
+                </div>
+                <div class="asset-item" data-asset-type="TOILET">
+                    <img src="assets/icons/Toilet.png" alt="Toilet">
+                    <span>Toilet</span>
+                </div>
+            </div>
+
+            <div id="simulation-area">
+                <canvas id="simulation-canvas"></canvas>
+            </div>
+        </main>
+
+        <footer>
+            <div id="controls">
+                <button id="start-btn">Start Simulation</button>
+                <button id="pause-btn" disabled>Pause Simulation</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+            <div id="message-log">
+                <p>Welcome! Place assets from the toolbar onto the grid. You need at least 3 stages to start.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Stage Schedule Modal -->
+    <div id="schedule-modal" class="modal-hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Set Stage Schedule</h2>
+            <p>Enter performance times (e.g., 10:00 - 12:00). One per line.</p>
+            <textarea id="schedule-input" rows="5" placeholder="09:00 - 10:30&#10;13:00 - 14:00"></textarea>
+            <button id="save-schedule-btn">Save Schedule</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
